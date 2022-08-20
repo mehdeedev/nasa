@@ -1,24 +1,17 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { Routes, Route } from "react-router-dom";
+import { List } from "./pages/list";
+import { Show } from "./pages/show";
+import { Header } from "./components";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App bg-gray-50 min-h-full">
+      <Header />
+      <Routes>
+        <Route path="/" element={<List />} />
+        <Route path="/show/:nasaId" element={<Show />} />
+      </Routes>
     </div>
   );
 }
